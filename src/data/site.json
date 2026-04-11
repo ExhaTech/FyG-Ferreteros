@@ -1,0 +1,123 @@
+{
+  "_notaYurguen": "layout.margenLateral = aire a los lados (ej. 0.75rem = la mitad de 1.5rem). anchoMaximoContenido = ancho máximo de la columna. PDFs en public/catalogos/.",
+  "layout": {
+    "margenLateral": "0.75rem",
+    "anchoMaximoContenido": "1400px"
+  },
+  "ui": {
+    "navInicio": "Inicio",
+    "navEmpresa": "Nuestra empresa",
+    "navContacto": "Contacto",
+    "menuTitulo": "Menú",
+    "menuAriaPrincipal": "Menú principal",
+    "menuAbrir": "Abrir menú",
+    "menuCerrar": "Cerrar menú",
+    "catalogoVerPdf": "Ver en línea",
+    "catalogoDescargarPdf": "Descargar PDF",
+    "catalogoTituloPorDefecto": "Catálogo",
+    "carouselAnterior": "Anterior",
+    "carouselSiguiente": "Siguiente",
+    "vendedoresVacios": "Sin vendedores cargados.",
+    "vendedorSinFoto": "Sin foto",
+    "empresaLeadPagina": "Conocé nuestra visión y misión.",
+    "contactoLeadPagina": "Teléfono, ubicación y cómo llegar.",
+    "direccionEtiqueta": "Dirección",
+    "telefonoEtiquetaFallback": "Teléfono",
+    "mapaTituloFallback": "Mapa",
+    "visionTituloFallback": "Visión",
+    "misionTituloFallback": "Misión",
+    "empresaTituloFallback": "Nuestra empresa",
+    "contactoTituloFallback": "Contacto",
+    "catalogosTituloFallback": "Catálogos",
+    "vendedoresTituloFallback": "Vendedores",
+    "wazeTextoBotonFallback": "Abrir ubicación en Waze",
+    "wazeEtiquetaFallback": "Waze",
+    "correoEtiquetaFallback": "Correo",
+    "codigoActividadEtiquetaFallback": "Código de actividad",
+    "zonaSinVendedores": "Sin vendedor asignado en esta provincia."
+  },
+  "meta": {
+    "tituloSitio": "FyG Ferreteros",
+    "descripcion": "Palmares, Alajuela, Costa Rica."
+  },
+  "paginas": {
+    "empresaTituloNavegador": "Nuestra empresa",
+    "contactoTituloNavegador": "Contacto"
+  },
+  "cabecera": {
+    "logo": "/logo.png",
+    "logoAlt": "FyG Ferreteros",
+    "marca": "FyG Ferreteros",
+    "eslogan": "Eslogan de la empresa"
+  },
+  "hero": {
+    "titulo": "",
+    "subtitulo": ""
+  },
+  "empresa": {
+    "tituloSeccion": "Nuestra empresa",
+    "vision": {
+      "titulo": "Visión",
+      "texto": "Visión"
+    },
+    "mision": {
+      "titulo": "Misión",
+      "texto": "Somos un aliado comercial enfocado en brindar soluciones innovadoras, con un equipo altamente comprometido, laboramos eficientemente y crecemos día con día de forma responsable para la satisfacción total de nuestros clientes."
+    }
+  },
+  "contacto": {
+    "tituloSeccion": "Contacto y ubicación",
+    "telefono": "+506 40016195",
+    "telefonoEtiqueta": "Teléfono",
+    "telefono": "+506 84552056",
+    "whatsappEtiqueta": "WhatsApp",
+    "correo": "ferreteros@gmail.com",
+    "correoEtiqueta": "Correo electrónico",
+    "direccion": "600 mts oeste, 25 norte Ind. Las Palmas, Palmares, Alajuela, Costa Rica.",
+    "codigoActividad": "4752.1",
+    "codigoActividadEtiqueta": "Código de actividad",
+    "waze": {
+      "url": "https://waze.com/ul/hd1gcnqyb6",
+      "etiqueta": "Ubicación",
+      "textoBoton": "Abrir ubicación en Waze"
+    }
+  },
+  "catalogos": {
+    "tituloSeccion": "Catálogos",
+    "descripcion": "",
+    "items": [
+      { "titulo": "Automotriz", "archivo": "/catalogos/automotriz.pdf", "descripcion": "" },
+      { "titulo": "Bellota", "archivo": "/catalogos/bellota.pdf", "descripcion": "" },
+      { "titulo": "Coflex", "archivo": "/catalogos/coflex.pdf", "descripcion": "" },
+      { "titulo": "Den Braven", "archivo": "/catalogos/denbraven.pdf", "descripcion": "" },
+      { "titulo": "Emerald", "archivo": "/catalogos/emerald.pdf", "descripcion": "" },
+      { "titulo": "Ferra", "archivo": "/catalogos/ferra.pdf", "descripcion": "" },
+      { "titulo": "Ilukon", "archivo": "/catalogos/ilukon.pdf", "descripcion": "" },
+      { "titulo": "Molinos Corona", "archivo": "/catalogos/molinoscorona.pdf", "descripcion": "" },
+      { "titulo": "Riel de Portón", "archivo": "/catalogos/rielporton.pdf", "descripcion": "" },
+      { "titulo": "Señuelos", "archivo": "/catalogos/senuelos.pdf", "descripcion": "" },
+      { "titulo": "Tiraderas y Botoneras", "archivo": "/catalogos/tiraderasbotoneras.pdf", "descripcion": "" },
+      { "titulo": "Tri-Cicle", "archivo": "/catalogos/tricicle.pdf", "descripcion": "" }
+    ]
+  },
+  "vendedores": {
+    "tituloSeccion": "Vendedores por zona",
+    "descripcion": "",
+    "zonas": [
+      { "nombre": "San José", "personas": [] },
+      { "nombre": "Alajuela", "personas": [] },
+      { "nombre": "Cartago", "personas": [] },
+      { "nombre": "Heredia", "personas": [] },
+      { "nombre": "Guanacaste", "personas": [] },
+      { "nombre": "Puntarenas", "personas": [] },
+      { "nombre": "Limón", "personas": [] }
+    ]
+  },
+  "pie": {
+    "texto": "© FyG Ferreteros. Todos los derechos reservados.",
+    "desarrolloTexto": "Desarrollado por",
+    "desarrolloNombre": "ExhaTech",
+    "desarrolloUrl": "https://www.exhatech.com",
+    "desarrolloCta": "Encontranos"
+  }
+}

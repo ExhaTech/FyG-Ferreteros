@@ -1,0 +1,1005 @@
+/* Yurguen: tema más claro y dinámico (hovers, sombras, animación suave al cargar) */
+/* Yurguen: colores alineados al logo FYG PRO (#2B65B0 azul, #58595B gris) */
+:root {
+  --fondo: #e8edf5;
+  --fondo-degradado: linear-gradient(165deg, #f2f6fc 0%, #e2ebf7 50%, #d5e0f2 100%);
+  --fondo-card: #ffffff;
+  --acento: #2b65b0;
+  --acento-hover: #1f4d88;
+  --titulo: #2b65b0;
+  --texto: #58595b;
+  --texto-suave: #6b6d70;
+  --borde: rgba(43, 101, 176, 0.12);
+  --sombra: 0 4px 14px rgba(43, 101, 176, 0.08);
+  --sombra-hover: 0 12px 28px rgba(43, 101, 176, 0.14);
+  /* Yurguen: defaults si no corre applyLayout; JSON suele mandar (margen mitad = más ancho útil) */
+  --page-gutter: 0.75rem;
+  --page-max-width: 1400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Yurguen: base un poco más grande para que no se sienta “encogido” */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 1.0625rem;
+  background: var(--fondo-degradado);
+  background-attachment: fixed;
+  color: var(--texto);
+  line-height: 1.55;
+}
+
+a {
+  color: var(--acento);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  color: var(--acento-hover);
+  text-decoration: underline;
+}
+
+/* Yurguen: header fijo — sin padding horizontal aquí (va en .header-inner igual que main) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 130;
+  padding: 0.45rem 0;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.header-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Yurguen: logo más visible en móvil y escritorio */
+.site-logo {
+  max-height: clamp(52px, 14vw, 76px);
+  max-width: min(320px, 58vw);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
+}
+
+.site-header .marca {
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--titulo);
+  line-height: 1.2;
+}
+
+.site-header .eslogan {
+  color: var(--texto-suave);
+  font-size: 0.8rem;
+  line-height: 1.25;
+}
+
+/* Yurguen: páginas internas — misma columna y márgenes que .header-inner / .main-shell */
+main {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0.65rem max(var(--page-gutter), env(safe-area-inset-right, 0px)) 1.75rem
+    max(var(--page-gutter), env(safe-area-inset-left, 0px));
+  width: 100%;
+}
+
+.main--inicio {
+  max-width: none;
+  margin: 0;
+  padding: 0.65rem 0 1.75rem;
+  width: 100%;
+}
+
+.main-shell {
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(var(--page-gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--page-gutter), env(safe-area-inset-right, 0px));
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app > main {
+  flex: 1;
+}
+
+/* Yurguen: hero compacto (puente hacia catálogos) */
+/* Yurguen: sin padding horizontal extra — el margen lo da .main-shell */
+.hero {
+  text-align: center;
+  padding: 0.65rem 0 0.85rem;
+  animation: heroEntra 0.55s ease-out both;
+}
+
+/* Yurguen: hero alineado al tamaño de títulos de sección (no más chico que el resto) */
+.hero--compact h1 {
+  font-size: clamp(1.35rem, 4vw, 1.9rem);
+  margin: 0 0 0.15rem;
+}
+
+.hero--compact h1:last-child {
+  margin-bottom: 0;
+}
+
+.hero--compact p {
+  font-size: 0.95rem;
+  max-width: min(52ch, 100%);
+  margin-inline: auto;
+  line-height: 1.45;
+}
+
+@keyframes heroEntra {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  color: var(--titulo);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--texto-suave);
+}
+
+section {
+  margin-bottom: 1.35rem;
+}
+
+section > h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  color: var(--titulo);
+  font-weight: 700;
+  border-left: 4px solid var(--acento);
+  padding-left: 0.65rem;
+}
+
+/* Yurguen: secciones de apoyo más chicas visualmente */
+.section--secondary > h2 {
+  font-size: 1.08rem;
+  margin-bottom: 0.3rem;
+}
+
+.section--secondary {
+  margin-bottom: 1.1rem;
+}
+
+.seccion-desc {
+  margin: 0 0 0.55rem;
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+}
+
+.card-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+/* Yurguen: bloques inicio (catálogos + vendedores) — mismo espaciado */
+.section-inicio-panel {
+  margin-bottom: 1.5rem;
+}
+
+/* Yurguen: franja de título dentro de .main-shell — sin gutter duplicado */
+.section-head-strip {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0 0.2rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Yurguen: tarjeta del encabezado (mismo estilo en ambas secciones) */
+.panel-section-head {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 0.7rem 0.75rem 0.75rem;
+  box-shadow: 0 4px 18px rgba(43, 101, 176, 0.08);
+  margin: 0 0 0.15rem;
+}
+
+.panel-head {
+  padding: 0;
+}
+
+/* Yurguen: título y subtítulo de panel (catálogos / vendedores idénticos) */
+.panel-section-head h2 {
+  font-size: clamp(1.55rem, 4.5vw, 2.05rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 0.3rem;
+  border-left: 6px solid var(--acento);
+  padding-left: 0.65rem;
+  color: var(--titulo);
+}
+
+.seccion-desc--panel {
+  font-size: 0.95rem;
+  margin: 0 0 0.15rem;
+  color: var(--texto-suave);
+  line-height: 1.45;
+}
+
+.card-grid--catalogos {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .card-grid--catalogos {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (min-width: 600px) {
+  .card-grid.dos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Yurguen: tarjetas con hover para sensación dinámica */
+.card {
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-shadow: var(--sombra);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+/* Yurguen: tarjeta compacta (título + botón); la jerarquía la marca el h2 de sección */
+#catalogos .catalogo-item {
+  padding: 0.75rem 0.9rem;
+  min-height: 100%;
+}
+
+#catalogos .catalogo-item h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+  border-color: rgba(43, 101, 176, 0.28);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--titulo);
+  font-weight: 700;
+}
+
+.card p.pre {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--texto);
+  font-size: 0.98rem;
+}
+
+.contact-block {
+  margin-bottom: 0.65rem;
+}
+
+/* Yurguen: página contacto — bloques en fila; en pantalla angosta pasan abajo solos */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 1.35rem;
+}
+
+.contact-row > .contact-block {
+  margin-bottom: 0;
+}
+
+.contact-block--tel {
+  flex: 0 1 auto;
+  min-width: 10rem;
+}
+
+.contact-block--dir {
+  flex: 2 1 14rem;
+  min-width: min(100%, 12rem);
+}
+
+.contact-row .contact-block--waze {
+  flex: 1 1 11rem;
+  min-width: min(100%, 10rem);
+}
+
+/* Yurguen: correo y código de actividad (datos desde site.json contacto.*) */
+.contact-block--correo {
+  flex: 1 1 14rem;
+  min-width: min(100%, 12rem);
+}
+
+.contact-block--actividad {
+  flex: 1 1 13rem;
+  min-width: min(100%, 11rem);
+}
+
+.contact-map-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde);
+  width: 100%;
+}
+
+.contact-map-section .mapa-subtitulo {
+  margin-top: 0;
+}
+
+.card--contacto {
+  padding: 1rem 1.1rem;
+}
+
+.contact-block strong {
+  display: block;
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.map-wrap {
+  margin-top: 0.75rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra);
+  aspect-ratio: 16 / 9;
+  max-height: 240px;
+  transition: box-shadow 0.25s ease;
+}
+
+.map-wrap:hover {
+  box-shadow: var(--sombra-hover);
+}
+
+.map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.catalogo-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.catalogo-item .desc {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Yurguen: Ver en línea + Descargar (dos enlaces por catálogo) */
+.catalogo-item__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-self: flex-start;
+}
+
+.catalogo-item__acciones a {
+  display: inline-block;
+  padding: 0.48rem 1.05rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Yurguen: abre el PDF en otra pestaña (visor del navegador) */
+.catalogo-item__link--ver {
+  background: var(--acento);
+  color: #fff !important;
+  border: 2px solid var(--acento);
+  box-shadow: 0 2px 8px rgba(43, 101, 176, 0.28);
+}
+
+.catalogo-item__link--ver:hover {
+  background: var(--acento-hover);
+  border-color: var(--acento-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(43, 101, 176, 0.32);
+  text-decoration: none;
+}
+
+/* Yurguen: atributo download — guardar archivo (mismo origen) */
+.catalogo-item__link--bajar {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--acento) !important;
+  border: 2px solid var(--acento);
+  box-shadow: 0 1px 4px rgba(43, 101, 176, 0.12);
+}
+
+.catalogo-item__link--bajar:hover {
+  background: rgba(43, 101, 176, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 101, 176, 0.2);
+  text-decoration: none;
+}
+
+.zona {
+  margin-bottom: 1rem;
+}
+
+.zona h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+  color: var(--titulo);
+  font-weight: 700;
+}
+
+.vendedores-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.65rem;
+}
+
+.v-card {
+  background: var(--fondo-card);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 0.75rem 0.65rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.v-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--sombra-hover);
+}
+
+.v-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(43, 101, 176, 0.22);
+  margin-bottom: 0.65rem;
+  transition: border-color 0.2s ease, transform 0.25s ease;
+}
+
+.v-card:hover img {
+  border-color: var(--acento);
+  transform: scale(1.05);
+}
+
+.v-card .nombre {
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--titulo);
+}
+
+.v-card .tel {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.v-card .sin-foto {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 0.65rem;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+/* Yurguen: pie — solo padding vertical; el lateral lo da main / .main-shell (evita doble gutter) */
+.site-footer {
+  text-align: center;
+  padding: 1rem 0 1.1rem;
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--borde);
+  color: var(--texto);
+  font-size: 1rem;
+  line-height: 1.5;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* Yurguen: líneas del pie (cliente + desarrollador ExhaTech); texto largo no se corta raro */
+.site-footer__line {
+  margin: 0;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__line + .site-footer__line {
+  margin-top: 0.5rem;
+}
+
+.site-footer__dev .site-footer__dev-link {
+  color: var(--acento);
+  font-weight: 600;
+}
+
+.site-footer__dev .site-footer__dev-link:hover {
+  color: var(--acento-hover);
+}
+
+/* Yurguen: 7 provincias — título + carrusel o mensaje vacío */
+.vendedores-zonas-wrap {
+  width: 100%;
+}
+
+.zona-vendedores:not(.zona-vendedores--accordion) {
+  margin-bottom: 1.1rem;
+}
+
+.zona-vendedores:not(.zona-vendedores--accordion):last-child {
+  margin-bottom: 0;
+}
+
+/* Yurguen: título de provincia (en summary del acordeón) al nivel de h2 de sección */
+.zona-vendedores__titulo {
+  margin: 0;
+  padding-left: 0.65rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--titulo);
+  border-left: 4px solid var(--acento);
+  line-height: 1.25;
+}
+
+/* Yurguen: acordeón vendedores por provincia */
+.zona-vendedores--accordion {
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--sombra);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.zona-vendedores--accordion:last-child {
+  margin-bottom: 0;
+}
+
+/* Yurguen: summary dentro de columna .main-shell — sin gutter extra */
+.zona-vendedores__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  list-style: none;
+  cursor: pointer;
+  padding: 0.7rem 0.85rem;
+  font-weight: inherit;
+  color: inherit;
+  transition: background 0.2s ease;
+}
+
+.zona-vendedores__summary::-webkit-details-marker {
+  display: none;
+}
+
+.zona-vendedores__summary::after {
+  content: '▾';
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: var(--acento);
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.zona-vendedores--accordion[open] .zona-vendedores__summary::after {
+  transform: rotate(-180deg);
+}
+
+.zona-vendedores__summary:hover {
+  background: rgba(43, 101, 176, 0.06);
+}
+
+.zona-vendedores__body {
+  padding-bottom: 0.35rem;
+}
+
+.zona-vendedores__empty {
+  margin: 0;
+  padding: 0.5rem 0.85rem 0.25rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.carousel-strip--zona {
+  margin-bottom: 0.15rem;
+}
+
+/* Yurguen: botón / enlace destacado para Waze */
+.contact-block--waze .link-waze {
+  display: inline-block;
+  margin-top: 0.2rem;
+  padding: 0.4rem 0.9rem;
+  background: #33ccff;
+  color: #1a1a1a !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(51, 204, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.contact-block--waze .link-waze:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(51, 204, 255, 0.45);
+  text-decoration: none;
+}
+
+/* Yurguen: misma columna que main (padding horizontal dentro del max-width, como el cuerpo) */
+.header-inner {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding-left: max(var(--page-gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--page-gutter), env(safe-area-inset-right, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header-brand-link:hover {
+  text-decoration: none;
+}
+
+.nav-toggle {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 0.45rem 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: inherit;
+}
+
+.nav-toggle:hover {
+  background: rgba(43, 101, 176, 0.08);
+}
+
+.burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--titulo);
+  border-radius: 1px;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 42, 61, 0.4);
+  z-index: 115;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.nav-backdrop--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(300px, 88vw);
+  max-width: 100%;
+  background: #fff;
+  box-shadow: -8px 0 32px rgba(43, 101, 176, 0.18);
+  z-index: 125;
+  padding: 4.75rem max(var(--page-gutter), 1.1rem) 1.5rem max(var(--page-gutter), 1.1rem);
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-drawer--open {
+  transform: translateX(0);
+}
+
+.nav-drawer-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--texto-suave);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item + .nav-item {
+  border-top: 1px solid var(--borde);
+}
+
+.nav-link {
+  display: block;
+  padding: 0.85rem 0.25rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--titulo);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--acento-hover);
+  text-decoration: none;
+}
+
+.nav-link--active {
+  color: var(--acento);
+  border-left: 3px solid var(--acento);
+  padding-left: 0.5rem;
+  margin-left: -0.25rem;
+}
+
+/* Yurguen: carrusel dentro de .main-shell — alineado al resto de la columna */
+.carousel-strip {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.25rem 0 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-strip__empty {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  margin: 0;
+}
+
+/* Yurguen: carruseles — flechas chicas; el protagonismo es el slide, no los botones */
+.carousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.2rem 0.35rem;
+  align-items: center;
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.carousel__btn {
+  flex-shrink: 0;
+  align-self: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(43, 101, 176, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel__btn:hover {
+  background: var(--acento-hover);
+  transform: scale(1.06);
+}
+
+.carousel__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  min-width: 0;
+  touch-action: pan-x;
+}
+
+.carousel__track {
+  display: flex;
+  gap: 0.55rem;
+  padding: 0.25rem 0.1rem 0.4rem;
+  min-height: 100%;
+}
+
+.carousel__slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Yurguen: slides al tamaño del contenido (PDF + botón / foto vendedor), no media pantalla */
+/* Yurguen: tarjetas de carrusel un poco más anchas (columna ya es más grande) */
+.carousel__slide--cat {
+  width: min(292px, calc(100vw - 2.85rem));
+  max-width: 292px;
+}
+
+.carousel__slide--v {
+  width: min(176px, calc(100vw - 2.85rem));
+  max-width: 176px;
+}
+
+@media (min-width: 400px) {
+  .carousel__slide--cat {
+    width: min(308px, calc(100vw - 2.9rem));
+    max-width: 308px;
+  }
+  .carousel__slide--v {
+    width: min(184px, calc(100vw - 2.9rem));
+    max-width: 184px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel__slide--cat {
+    width: min(322px, 38vw);
+    max-width: 322px;
+  }
+  .carousel__slide--v {
+    width: min(196px, 24vw);
+    max-width: 196px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .carousel__slide--cat {
+    width: min(336px, 32vw);
+    max-width: 336px;
+  }
+  .carousel__slide--v {
+    width: min(208px, 16vw);
+    max-width: 208px;
+  }
+}
+
+.v-card--carousel {
+  height: 100%;
+  min-height: auto;
+  padding: 0.65rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.v-card__zona {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Yurguen: páginas internas — sin padding horizontal extra (ya va con main) */
+.page-hero {
+  text-align: center;
+  padding: 0.5rem 0 0.85rem;
+}
+
+/* Yurguen: título de página interna al estándar de secciones (antes más chico que h2) */
+.page-hero__title {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.35rem, 4vw, 1.95rem);
+  color: var(--titulo);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.page-hero__lead {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+  line-height: 1.45;
+}
+
+.section-page-body {
+  margin-bottom: 1.25rem;
+}
+
+.mapa-subtitulo {
+  margin: 1rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--titulo);
+}
