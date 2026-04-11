@@ -1,5 +1,5 @@
 {
-  "_notaYurguen": "layout.margenLateral = aire a los lados (ej. 0.75rem = la mitad de 1.5rem). anchoMaximoContenido = ancho máximo de la columna. PDFs en public/catalogos/.",
+  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). PDFs en public/catalogos/.",
   "layout": {
     "margenLateral": "0.75rem",
     "anchoMaximoContenido": "1400px"
@@ -32,6 +32,8 @@
     "vendedoresTituloFallback": "Vendedores",
     "wazeTextoBotonFallback": "Abrir ubicación en Waze",
     "wazeEtiquetaFallback": "Waze",
+    "whatsappTextoBotonFallback": "Abrir WhatsApp",
+    "telefonoMovilEtiquetaFallback": "Teléfono móvil",
     "correoEtiquetaFallback": "Correo",
     "codigoActividadEtiquetaFallback": "Código de actividad",
     "zonaSinVendedores": "Sin vendedor asignado en esta provincia."
@@ -67,10 +69,13 @@
   },
   "contacto": {
     "tituloSeccion": "Contacto y ubicación",
-    "telefono": "+506 40016195",
-    "telefonoEtiqueta": "Teléfono",
-    "telefono": "+506 84552056",
-    "whatsappEtiqueta": "WhatsApp",
+    "telefonos": [{ "numero": "+506 4001-6195", "etiqueta": "Teléfono" }],
+    "whatsapp": {
+      "numero": "50684552056",
+      "mostrar": "+506 8455-2056",
+      "textoBoton": "Abrir WhatsApp"
+    },
+    "mostrarCodigoActividad": false,
     "correo": "ferreteros@gmail.com",
     "correoEtiqueta": "Correo electrónico",
     "direccion": "600 mts oeste, 25 norte Ind. Las Palmas, Palmares, Alajuela, Costa Rica.",
@@ -78,7 +83,7 @@
     "codigoActividadEtiqueta": "Código de actividad",
     "waze": {
       "url": "https://waze.com/ul/hd1gcnqyb6",
-      "etiqueta": "Ubicación",
+      "etiqueta": "",
       "textoBoton": "Abrir ubicación en Waze"
     }
   },
@@ -86,18 +91,18 @@
     "tituloSeccion": "Catálogos",
     "descripcion": "",
     "items": [
-      { "titulo": "Automotriz", "archivo": "/catalogos/automotriz.pdf", "descripcion": "" },
-      { "titulo": "Bellota", "archivo": "/catalogos/bellota.pdf", "descripcion": "" },
-      { "titulo": "Coflex", "archivo": "/catalogos/coflex.pdf", "descripcion": "" },
-      { "titulo": "Den Braven", "archivo": "/catalogos/denbraven.pdf", "descripcion": "" },
-      { "titulo": "Emerald", "archivo": "/catalogos/emerald.pdf", "descripcion": "" },
-      { "titulo": "Ferra", "archivo": "/catalogos/ferra.pdf", "descripcion": "" },
-      { "titulo": "Ilukon", "archivo": "/catalogos/ilukon.pdf", "descripcion": "" },
-      { "titulo": "Molinos Corona", "archivo": "/catalogos/molinoscorona.pdf", "descripcion": "" },
-      { "titulo": "Riel de Portón", "archivo": "/catalogos/rielporton.pdf", "descripcion": "" },
-      { "titulo": "Señuelos", "archivo": "/catalogos/senuelos.pdf", "descripcion": "" },
-      { "titulo": "Tiraderas y Botoneras", "archivo": "/catalogos/tiraderasbotoneras.pdf", "descripcion": "" },
-      { "titulo": "Tri-Cicle", "archivo": "/catalogos/tricicle.pdf", "descripcion": "" }
+      { "titulo": "Automotriz", "archivo": "/catalogos/automotriz.pdf", "descripcion": "Descripción del Catálogo Automotriz" },
+      { "titulo": "Bellota", "archivo": "/catalogos/bellota.pdf", "descripcion": "Descripción del Catálogo Bellota" },
+      { "titulo": "Coflex", "archivo": "/catalogos/coflex.pdf", "descripcion": "Descripción del Catálogo Coflex" },
+      { "titulo": "Den Braven", "archivo": "/catalogos/denbraven.pdf", "descripcion": "Descripción del Catálogo Den Braven" },
+      { "titulo": "Emerald", "archivo": "/catalogos/emerald.pdf", "descripcion": "Descripción del Catálogo Emerald" },
+      { "titulo": "Ferra", "archivo": "/catalogos/ferra.pdf", "descripcion": "Descripción del Catálogo Ferra" },
+      { "titulo": "Ilukon", "archivo": "/catalogos/ilukon.pdf", "descripcion": "Descripción del Catálogo Ilukon" },
+      { "titulo": "Molinos Corona", "archivo": "/catalogos/molinoscorona.pdf", "descripcion": "Descripción del Catálogo Molinos Corona" },
+      { "titulo": "Riel de Portón", "archivo": "/catalogos/rielporton.pdf", "descripcion": "Descripción del Catálogo Riel de Portón" },
+      { "titulo": "Señuelos", "archivo": "/catalogos/senuelos.pdf", "descripcion": "Descripción del Catálogo Señuelos" },
+      { "titulo": "Tiraderas y Botoneras", "archivo": "/catalogos/tiraderasbotoneras.pdf", "descripcion": "Descripción del Catálogo Tiraderas y Botoneras" },
+      { "titulo": "Tri-Cicle", "archivo": "/catalogos/tricicle.pdf", "descripcion": "Descripción del Catálogo Tri-Cicle" }
     ]
   },
   "vendedores": {
