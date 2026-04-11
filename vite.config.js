@@ -5,11 +5,11 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Yurguen: en producción base = repo GitHub Pages (https://marco-cz.github.io/Ferreteria/); en dev queda '/' .
-export default defineConfig(({ mode }) => ({
+// Yurguen: base siempre '/' porque el sitio usa dominio propio (fygferreteros.com) y se sirve desde la raíz.
+export default defineConfig(() => ({
   root: '.',
   publicDir: 'public',
-  base: mode === 'production' ? '/Ferreteria/' : '/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -21,4 +21,4 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-}));
+});
