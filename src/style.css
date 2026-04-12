@@ -973,6 +973,7 @@ body.nav-open {
 
 .carousel__track {
   display: flex;
+  flex-wrap: nowrap;
   gap: 0.55rem;
   padding: 0.25rem 0.1rem 0.4rem;
   min-height: 100%;
