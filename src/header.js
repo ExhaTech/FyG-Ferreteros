@@ -9,6 +9,7 @@ function navItems() {
   return [
     { key: 'inicio', href: './index.html', label: ui.navInicio || 'Inicio' },
     { key: 'empresa', href: './empresa.html', label: ui.navEmpresa || 'Nuestra empresa' },
+    { key: 'vendedores', href: './vendedores.html', label: ui.navVendedores || 'Vendedores' },
     { key: 'contacto', href: './contacto.html', label: ui.navContacto || 'Contacto' },
   ];
 }
@@ -35,7 +36,7 @@ function buildBrand() {
 }
 
 /**
- * @param {'inicio' | 'empresa' | 'contacto'} activeKey
+ * @param {'inicio' | 'empresa' | 'vendedores' | 'contacto'} activeKey
  */
 export function createHeader(activeKey) {
   const labelOpen = ui.menuAbrir || 'Abrir menú';

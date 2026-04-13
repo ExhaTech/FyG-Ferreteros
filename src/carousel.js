@@ -1,4 +1,25 @@
 // Yurguen: carrusel horizontal por scroll (flechas + snap); sin dependencias.
+import { el } from './dom.js';
+
+/** Yurguen: armado del DOM del carrusel (inicio + página vendedores). */
+export function buildCarouselElement(ui = {}, slides = []) {
+  const ant = ui.carouselAnterior || 'Anterior';
+  const sig = ui.carouselSiguiente || 'Siguiente';
+  return el('div', { className: 'carousel', 'data-carousel': '' }, [
+    el(
+      'button',
+      { type: 'button', className: 'carousel__btn carousel__prev', 'aria-label': ant },
+      ['‹']
+    ),
+    el('div', { className: 'carousel__viewport' }, [el('div', { className: 'carousel__track' }, slides)]),
+    el(
+      'button',
+      { type: 'button', className: 'carousel__btn carousel__next', 'aria-label': sig },
+      ['›']
+    ),
+  ]);
+}
+
 export function mountCarousels(root = document) {
   root.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const viewport = carousel.querySelector('.carousel__viewport');

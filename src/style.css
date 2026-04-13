@@ -728,6 +728,19 @@ section > h2 {
   margin-bottom: 0.15rem;
 }
 
+/* Yurguen: bloque contacto+dirección en inicio (debajo de catálogos) */
+.contacto-resumen-body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.35rem 0 0.65rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Yurguen: página vendedores — mismo acordeón que en inicio */
+.vendedores-zonas-wrap--pagina {
+  width: 100%;
+}
+
 /* Yurguen: botón / enlace destacado para Waze */
 .contact-block--waze .link-waze {
   display: inline-block;

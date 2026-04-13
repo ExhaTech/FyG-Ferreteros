@@ -7,6 +7,7 @@
   "ui": {
     "navInicio": "Inicio",
     "navEmpresa": "Nuestra empresa",
+    "navVendedores": "Vendedores",
     "navContacto": "Contacto",
     "menuTitulo": "Menú",
     "menuAriaPrincipal": "Menú principal",
@@ -30,6 +31,7 @@
     "contactoTituloFallback": "Contacto",
     "catalogosTituloFallback": "Catálogos",
     "vendedoresTituloFallback": "Vendedores",
+    "vendedoresLeadPagina": "",
     "wazeTextoBotonFallback": "Abrir ubicación en Waze",
     "wazeEtiquetaFallback": "Waze",
     "whatsappTextoBotonFallback": "Abrir WhatsApp",
@@ -44,7 +46,12 @@
   },
   "paginas": {
     "empresaTituloNavegador": "Nuestra empresa",
+    "vendedoresTituloNavegador": "Vendedores",
     "contactoTituloNavegador": "Contacto"
+  },
+  "inicio": {
+    "tituloContactoSeccion": "",
+    "descripcionContacto": ""
   },
   "cabecera": {
     "logo": "/logo.png",
@@ -107,6 +114,7 @@
   },
   "vendedores": {
     "tituloSeccion": "Vendedores por zona",
+    "descripcionPagina": "",
     "descripcion": "",
     "zonas": [
       { "nombre": "San José", "personas": [] },

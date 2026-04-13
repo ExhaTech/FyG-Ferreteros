@@ -18,6 +18,7 @@ export default defineConfig(() => ({
         main: resolve(__dirname, 'index.html'),
         empresa: resolve(__dirname, 'empresa.html'),
         contacto: resolve(__dirname, 'contacto.html'),
+        vendedores: resolve(__dirname, 'vendedores.html'),
       },
     },
   },
