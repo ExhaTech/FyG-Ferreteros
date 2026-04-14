@@ -1,5 +1,5 @@
 {
-  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). PDFs en public/catalogos/.",
+  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). PDFs en public/catalogos/. Estructura vendedores.personas: ver comentario _comentarioEstructuraYurguen dentro de vendedores.",
   "layout": {
     "margenLateral": "0.75rem",
     "anchoMaximoContenido": "1400px"
@@ -125,19 +125,20 @@
     ]
   },
   "vendedores": {
+    "_comentarioEstructuraYurguen": "Yurguen: zonas[].personas[] puede ser objeto { nombre, telefono, foto? } — nombre y telefono siempre se muestran; foto es opcional (ruta, ej. /vendedores/nombre.png) y si no va, no hay placeholder. También vale string \"Nombre completo, 88888888\" (el tel es lo que queda después de la última coma).",
     "tituloSeccion": "Vendedores por zona",
     "descripcionPagina": "",
     "descripcion": "",
     "zonas": [
-      { "nombre": "Parrita, Quepos, Orotina, Poas, Atenas", "personas": ["Luis Fernando Fernandez - 88229858"] },
-      { "nombre": "Guanacaste, Cobano", "personas": ["Jonathan Salazar Gonzalez - 88762726"] },
-      { "nombre": "Alajuela, Heredia, Puriscal", "personas": ["Oscar Ramirez Gonzalez - 72690649"] },
-      { "nombre": "Cartago, Limón", "personas": ["Elio Pibaque Vera - 64109653"] },
-      { "nombre": "Zona Sur", "personas": ["Eric Robles Picado - 83450521"] },
-      { "nombre": "San Ramón, Puntarenas, Palmares, Grecia, Naranjo", "personas": ["Juan Fernández Quesada - 83402675"] },
-      { "nombre": "San José", "personas": ["Adrian Lopez Villegas - 87923608"] },
-      { "nombre": "General", "personas": ["Carlos Hernández Molina - 60407881"] },
-      { "nombre": "San Carlos", "personas": ["Maikol Altamirano Castillo - 83646368"] }
+      { "nombre": "Parrita, Quepos, Orotina, Poas, Atenas", "personas": [{ "nombre": "Luis Fernando Fernandez", "telefono": "88229858" }] },
+      { "nombre": "Guanacaste, Cobano", "personas": [{ "nombre": "Jonathan Salazar Gonzalez", "telefono": "88762726" }] },
+      { "nombre": "Alajuela, Heredia, Puriscal", "personas": [{ "nombre": "Oscar Ramirez Gonzalez", "telefono": "72690649" }] },
+      { "nombre": "Cartago, Limón", "personas": [{ "nombre": "Elio Pibaque Vera", "telefono": "64109653" }] },
+      { "nombre": "Zona Sur", "personas": [{ "nombre": "Eric Robles Picado", "telefono": "83450521" }] },
+      { "nombre": "San Ramón, Puntarenas, Palmares, Grecia, Naranjo", "personas": [{ "nombre": "Juan Fernández Quesada", "telefono": "83402675" }] },
+      { "nombre": "San José", "personas": [{ "nombre": "Adrian Lopez Villegas", "telefono": "87923608" }] },
+      { "nombre": "General", "personas": [{ "nombre": "Carlos Hernández Molina", "telefono": "60407881" }] },
+      { "nombre": "San Carlos", "personas": [{ "nombre": "Maikol Altamirano Castillo", "telefono": "83646368" }] }
     ]
   },
   "pie": {

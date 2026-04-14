@@ -19,23 +19,51 @@ const navV =
   'Vendedores';
 document.title = `${navV} — ${marca}`;
 
+// Yurguen: persona = objeto { nombre, telefono, foto? } o string "Nombre, teléfono" (coma = última coma separa tel).
+function normalizePersona(raw) {
+  if (typeof raw === 'string') {
+    const s = raw.trim();
+    const sep = s.lastIndexOf(',');
+    if (sep >= 0) {
+      return {
+        nombre: s.slice(0, sep).trim(),
+        telefono: s.slice(sep + 1).trim(),
+        foto: undefined,
+      };
+    }
+    return { nombre: s, telefono: '', foto: undefined };
+  }
+  if (raw && typeof raw === 'object') {
+    return {
+      nombre: raw.nombre || '',
+      telefono: raw.telefono || '',
+      foto: raw.foto,
+    };
+  }
+  return { nombre: '', telefono: '', foto: undefined };
+}
+
 function vendedorSlidesForZona(zona) {
-  const sinFoto = ui.vendedorSinFoto || 'Sin foto';
-  return (zona.personas || []).map((p) => {
-    const foto = p.foto;
-    const imgBlock = foto
-      ? el('img', { src: publicUrl(foto), alt: p.nombre || '' })
-      : el('div', { className: 'sin-foto', text: sinFoto });
+  return (zona.personas || []).map((raw) => {
+    const p = normalizePersona(raw);
+    const cardKids = [];
+    // Yurguen: solo mostramos foto si viene en datos; sin foto no ocupamos placeholder "Sin foto".
+    if (p.foto) {
+      cardKids.push(el('img', { src: publicUrl(p.foto), alt: p.nombre || '' }));
+    }
+    // Yurguen: siempre nombre y teléfono visibles (con o sin foto).
+    cardKids.push(
+      el('p', { className: 'nombre', text: p.nombre || '' }),
+      el('p', { className: 'tel' }, [
+        p.telefono
+          ? el('a', { href: `tel:${String(p.telefono).replace(/\s/g, '')}` }, [
+              document.createTextNode(p.telefono),
+            ])
+          : document.createTextNode(''),
+      ])
+    );
     return el('div', { className: 'carousel__slide carousel__slide--v' }, [
-      el('div', { className: 'v-card v-card--carousel' }, [
-        imgBlock,
-        el('p', { className: 'nombre', text: p.nombre || '' }),
-        el('p', { className: 'tel' }, [
-          el('a', { href: `tel:${String(p.telefono || '').replace(/\s/g, '')}` }, [
-            document.createTextNode(p.telefono || ''),
-          ]),
-        ]),
-      ]),
+      el('div', { className: 'v-card v-card--carousel' }, cardKids),
     ]);
   });
 }
@@ -44,12 +72,13 @@ function render() {
   applyLayoutFromSite();
 
   const zonaVacía = ui.zonaSinVendedores || 'Sin vendedor asignado en esta provincia.';
-  const bloquesZonas = (site.vendedores?.zonas || []).map((zona, i) => {
+  const bloquesZonas = (site.vendedores?.zonas || []).map((zona) => {
     const slides = vendedorSlidesForZona(zona);
     const cuerpo = slides.length
       ? el('div', { className: 'carousel-strip carousel-strip--zona' }, [buildCarouselElement(ui, slides)])
       : el('p', { className: 'zona-vendedores__empty', text: zona.mensajeVacio || zonaVacía });
-    return el('details', { className: 'zona-vendedores zona-vendedores--accordion', open: i === 0 }, [
+    // Yurguen: zonas arrancan cerradas; el usuario abre la que quiera.
+    return el('details', { className: 'zona-vendedores zona-vendedores--accordion' }, [
       el('summary', { className: 'zona-vendedores__summary' }, [
         el('span', { className: 'zona-vendedores__titulo', text: zona.nombre || 'Provincia' }),
       ]),
