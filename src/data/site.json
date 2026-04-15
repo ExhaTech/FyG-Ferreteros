@@ -1,5 +1,5 @@
 {
-  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). PDFs en public/catalogos/. Estructura vendedores.personas: ver comentario _comentarioEstructuraYurguen dentro de vendedores.",
+  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). Catálogos: PDFs en public/catalogos/; build copia raíz catalogos/ → public/. Si dist/catalogos quedó bien: npm run sync-catalogos-from-dist. Estructura vendedores: _comentarioEstructuraYurguen en vendedores.",
   "layout": {
     "margenLateral": "0.75rem",
     "anchoMaximoContenido": "1400px"
@@ -104,7 +104,7 @@
       { "titulo": "Tiraderas P/ Mueble", "archivo": "/catalogos/tiraderaspmueble.pdf", "descripcion": "Agarraderas" },
       { "titulo": "Coflex", "archivo": "/catalogos/coflex.pdf", "descripcion": "Griferia" },
       { "titulo": "Bellota", "archivo": "/catalogos/bellota.pdf", "descripcion": "Agricola y Herramientas" },
-      { "titulo": "Corona", "archivo": "/catalogos/corona.pdf", "descripcion": "Molinos" },
+      { "titulo": "Corona", "archivo": "/catalogos/molinos.pdf", "descripcion": "Molinos" },
       { "titulo": "Comunello", "archivo": "/catalogos/comunello.pdf", "descripcion": "Rieles y Herrajes" },
       { "titulo": "Torette", "archivo": "/catalogos/torrette.pdf", "descripcion": "Cedazos y mallas" },
       { "titulo": "Accesorios P/ Guadaña", "archivo": "/catalogos/accesoriospguadaña.pdf", "descripcion": "Cuerda motoguadaña" },
