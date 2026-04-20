@@ -1,6 +1,7 @@
-// Yurguen: página Contacto — mapa opcional; grilla tel/correo/dir la arma contactoBloques.js.
+// Yurguen: página Contacto — mapa opcional; grilla tel/correo/dir la arma contactoBloques.js; QR sitio desde site.json.
 import site from './data/site.json';
 import { applyLayoutFromSite } from './applyLayout.js';
+import { publicUrl } from './publicUrl.js';
 import { el } from './dom.js';
 import { createHeader } from './header.js';
 import { createFooter } from './footer.js';
@@ -32,6 +33,31 @@ function render() {
 
   const { contactGrid, codigoRow } = buildContactoDireccionParts(site, { incluirFilaCodigo: true });
   const cardInner = [contactGrid, codigoRow].filter(Boolean);
+
+  // Yurguen: QR a la URL en contacto.qr.url; la imagen la genera scripts/generate-qr-sitio.mjs en dev/build.
+  const qrCfg = site.contacto?.qr;
+  const qrUrl = qrCfg?.url && String(qrCfg.url).trim();
+  const qrImg = qrCfg?.imagen && String(qrCfg.imagen).trim();
+  if (qrUrl && qrImg) {
+    const pieQr = String(qrCfg.pie || ui.qrSitioPieFallback || '').trim();
+    const qrKids = [
+      el('h3', {
+        className: 'contacto-qr__titulo',
+        text: qrCfg.titulo || ui.qrSitioTituloFallback || 'Nuestra página web',
+      }),
+      el('img', {
+        className: 'contacto-qr__img',
+        src: publicUrl(qrImg),
+        alt: qrUrl,
+        width: 220,
+        height: 220,
+        decoding: 'async',
+      }),
+    ];
+    // Yurguen: párrafo pie solo si hay texto (evita hueco vacío).
+    if (pieQr) qrKids.push(el('p', { className: 'contacto-qr__pie', text: pieQr }));
+    cardInner.push(el('div', { className: 'contacto-qr' }, qrKids));
+  }
 
   if (mapaUrl) {
     cardInner.push(

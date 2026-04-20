@@ -1,4 +1,4 @@
-// Yurguen: página Nuestra empresa (visión / misión) — HTML aparte para no cargar todo en inicio.
+// Yurguen: página Nuestra empresa (historia / visión / misión) — HTML aparte para no cargar todo en inicio.
 import site from './data/site.json';
 import { applyLayoutFromSite } from './applyLayout.js';
 import { el } from './dom.js';
@@ -27,14 +27,26 @@ function render() {
     ]),
   ];
 
+  // Yurguen: historia ancho completo debajo de las dos tarjetas (texto largo).
+  const hist = site.empresa?.historia;
+  const historiaBlock =
+    hist?.texto &&
+    el('div', { className: 'empresa-historia-wrap' }, [
+      el('div', { className: 'card' }, [
+        el('h3', { text: hist.titulo || ui.historiaTituloFallback || 'Historia de la empresa' }),
+        el('p', { className: 'pre', text: hist.texto }),
+      ]),
+    ]);
+
+  const empresaSectionKids = [el('div', { className: 'card-grid dos' }, empresaCards)];
+  if (historiaBlock) empresaSectionKids.push(historiaBlock);
+
   const main = el('main', {}, [
     el('section', { className: 'page-hero' }, [
       el('h1', { className: 'page-hero__title', text: site.empresa?.tituloSeccion || ui.empresaTituloFallback || 'Nuestra empresa' }),
-      el('p', { className: 'page-hero__lead', text: ui.empresaLeadPagina || 'Conocé nuestra visión y misión.' }),
+      el('p', { className: 'page-hero__lead', text: ui.empresaLeadPagina || 'Conocé nuestra historia, visión y misión.' }),
     ]),
-    el('section', { id: 'empresa', className: 'section--secondary section-page-body' }, [
-      el('div', { className: 'card-grid dos' }, empresaCards),
-    ]),
+    el('section', { id: 'empresa', className: 'section--secondary section-page-body' }, empresaSectionKids),
     createFooter(site),
   ]);
 

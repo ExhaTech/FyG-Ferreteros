@@ -295,6 +295,11 @@ section > h2 {
   }
 }
 
+/* Yurguen: historia empresa — debajo de visión/misión, mismo gap que el grid */
+.empresa-historia-wrap {
+  margin-top: 0.65rem;
+}
+
 /* Yurguen: tarjetas con hover para sensación dinámica */
 .card {
   background: var(--fondo-card);
@@ -338,6 +343,40 @@ section > h2 {
 
 .contact-block {
   margin-bottom: 0.65rem;
+}
+
+/* Yurguen: QR página web en contacto */
+.contacto-qr {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde);
+  text-align: center;
+}
+
+.contacto-qr__titulo {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+  color: var(--titulo);
+  font-weight: 700;
+}
+
+.contacto-qr__img {
+  display: block;
+  margin: 0 auto;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra);
+}
+
+.contacto-qr__pie {
+  margin: 0.55rem 0 0;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  line-height: 1.35;
 }
 
 /* Yurguen: página contacto — bloques en fila; en pantalla angosta pasan abajo solos */

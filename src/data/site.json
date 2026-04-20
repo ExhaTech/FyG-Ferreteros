@@ -1,5 +1,5 @@
 {
-  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). Catálogos: PDFs en public/catalogos/; build copia raíz catalogos/ → public/. Si dist/catalogos quedó bien: npm run sync-catalogos-from-dist. Estructura vendedores: _comentarioEstructuraYurguen en vendedores.",
+  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). Catálogos: PDFs en public/catalogos/; build copia raíz catalogos/ → public/. Si dist/catalogos quedó bien: npm run sync-catalogos-from-dist. QR sitio: contacto.qr.url + imagen; npm run generate-qr-sitio o build. Estructura vendedores: _comentarioEstructuraYurguen en vendedores.",
   "layout": {
     "margenLateral": "0.75rem",
     "anchoMaximoContenido": "1400px"
@@ -20,13 +20,14 @@
     "carouselSiguiente": "Siguiente",
     "vendedoresVacios": "Sin vendedores cargados.",
     "vendedorSinFoto": "Sin foto",
-    "empresaLeadPagina": "Conocé nuestra visión y misión.",
+    "empresaLeadPagina": "Conocé nuestra historia, visión y misión.",
     "contactoLeadPagina": "Teléfono, ubicación y cómo llegar.",
     "direccionEtiqueta": "Dirección",
     "telefonoEtiquetaFallback": "Teléfono",
     "mapaTituloFallback": "Mapa",
     "visionTituloFallback": "Visión",
     "misionTituloFallback": "Misión",
+    "historiaTituloFallback": "Historia de la empresa",
     "empresaTituloFallback": "Nuestra empresa",
     "contactoTituloFallback": "Contacto",
     "catalogosTituloFallback": "Catálogos",
@@ -38,7 +39,9 @@
     "telefonoMovilEtiquetaFallback": "Teléfono móvil",
     "correoEtiquetaFallback": "Correo",
     "codigoActividadEtiquetaFallback": "Código de actividad",
-    "zonaSinVendedores": "Sin vendedor asignado en esta provincia."
+    "zonaSinVendedores": "Sin vendedor asignado en esta provincia.",
+    "qrSitioTituloFallback": "Nuestra página web",
+    "qrSitioPieFallback": "Escaneá el código con el celular para abrir el sitio."
   },
   "meta": {
     "tituloSitio": "FyG Ferreteros",
@@ -57,7 +60,7 @@
     "logo": "/logo.png",
     "logoAlt": "FyG Ferreteros",
     "marca": "FyG Ferreteros",
-    "eslogan": "Eslogan de la empresa"
+    "eslogan": "Los amigos de siempre"
   },
   "hero": {
     "titulo": "",
@@ -72,6 +75,10 @@
     "mision": {
       "titulo": "Misión",
       "texto": "Somos un aliado comercial enfocado en brindar soluciones innovadoras, con un equipo altamente comprometido, laboramos eficientemente y crecemos día con día de forma responsable para la satisfacción total de nuestros clientes."
+    },
+    "historia": {
+      "titulo": "Historia de la empresa",
+      "texto": "Desde 1992, iniciamos con la visión de convertirnos en un aliado estratégico para el sector ferretero, la construcción y la industria, ofreciendo productos de alta calidad y un servicio confiable.\n\nCon esfuerzo, disciplina y la guía de Dios, evolucionamos hasta consolidarnos como una empresa mayorista ferretera líder, reconocida por la distribución de diferentes marcas de prestigio y por la confianza que nuestros clientes han depositado en nosotros durante más de tres décadas.\n\nNuestro crecimiento nos impulsó a desarrollar FYG, nuestra marca propia, creada para brindar respaldo, innovación y excelencia en cada solución que ofrecemos al mercado.\n\nHoy continuamos expandiéndonos con una visión de futuro, fortaleciendo alianzas comerciales y llevando calidad, confianza y progreso a ferreterías, distribuidores y proyectos en todo el país."
     }
   },
   "contacto": {
@@ -92,6 +99,12 @@
       "url": "https://waze.com/ul/hd1gcnqyb6",
       "etiqueta": "",
       "textoBoton": "Abrir ubicación en Waze"
+    },
+    "qr": {
+      "url": "https://fygferreteros.com/inicio.html",
+      "imagen": "/qr-sitio-web.png",
+      "titulo": "Nuestra página web",
+      "pie": "Escaneá el código con el celular para abrir el sitio."
     }
   },
   "catalogos": {

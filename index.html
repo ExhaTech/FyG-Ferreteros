@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Yurguen: título por defecto; el real lo pone main.js desde site.json -->
-  <title>Ferretería</title>
-  <link rel="stylesheet" href="/src/style.css" />
+  <!-- Yurguen: raíz del dominio → inicio.html (contenido real del sitio). -->
+  <title>Redirigiendo…</title>
+  <meta http-equiv="refresh" content="0;url=inicio.html" />
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="/src/main.js"></script>
+  <p>Cargando inicio… Si no pasá nada, <a href="inicio.html">tocá acá</a>.</p>
+  <script>
+    location.replace('inicio.html');
+  </script>
 </body>
 </html>
