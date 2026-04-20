@@ -295,9 +295,9 @@ section > h2 {
   }
 }
 
-/* Yurguen: historia empresa — debajo de visión/misión, mismo gap que el grid */
+/* Yurguen: historia empresa — arriba de visión/misión; separación hacia el grid */
 .empresa-historia-wrap {
-  margin-top: 0.65rem;
+  margin-bottom: 0.65rem;
 }
 
 /* Yurguen: tarjetas con hover para sensación dinámica */

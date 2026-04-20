@@ -27,7 +27,7 @@ function render() {
     ]),
   ];
 
-  // Yurguen: historia ancho completo debajo de las dos tarjetas (texto largo).
+  // Yurguen: historia ancho completo arriba de visión/misión (texto largo).
   const hist = site.empresa?.historia;
   const historiaBlock =
     hist?.texto &&
@@ -38,8 +38,9 @@ function render() {
       ]),
     ]);
 
-  const empresaSectionKids = [el('div', { className: 'card-grid dos' }, empresaCards)];
+  const empresaSectionKids = [];
   if (historiaBlock) empresaSectionKids.push(historiaBlock);
+  empresaSectionKids.push(el('div', { className: 'card-grid dos' }, empresaCards));
 
   const main = el('main', {}, [
     el('section', { className: 'page-hero' }, [
