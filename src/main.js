@@ -8,6 +8,7 @@ import { createFooter } from './footer.js';
 import { initNav } from './nav.js';
 import { mountCarousels, buildCarouselElement } from './carousel.js';
 import { buildContactoDireccionParts } from './contactoBloques.js';
+import { mountCatalogoPdfGuard } from './catalogoPdfGuard.js';
 
 const ui = site.ui || {};
 
@@ -36,6 +37,8 @@ function catalogSlides() {
           href,
           target: '_blank',
           rel: 'noopener noreferrer',
+          'data-catalogo-pdf': '',
+          'data-catalogo-ver': '',
         },
         [document.createTextNode(verTxt)]
       ),
@@ -45,6 +48,7 @@ function catalogSlides() {
           className: 'catalogo-item__link--bajar',
           href,
           download: nombreArchivo,
+          'data-catalogo-pdf': '',
         },
         [document.createTextNode(bajarTxt)]
       ),
@@ -129,6 +133,8 @@ function render() {
   app.replaceChildren(headerGroup, main);
   initNav(app);
   mountCarousels(app);
+  // Yurguen: catálogos — comprobar PDF antes de abrir/descargar; 404 → modal sobrio.
+  mountCatalogoPdfGuard(app, ui);
 }
 
 render();
