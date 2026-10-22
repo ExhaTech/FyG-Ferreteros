@@ -310,15 +310,19 @@ section > h2 {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
 }
 
-/* Yurguen: tarjeta compacta (título + botón); la jerarquía la marca el h2 de sección */
+/* Yurguen: tarjeta compacta; altura al 100% del slide para alinear botones abajo */
 #catalogos .catalogo-item {
-  padding: 0.75rem 0.9rem;
+  padding: 0.55rem 0.7rem;
+  height: 100%;
   min-height: 100%;
+  box-sizing: border-box;
 }
 
 #catalogos .catalogo-item h3 {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
 }
 
 .card:hover {
@@ -516,7 +520,7 @@ section > h2 {
 .catalogo-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .catalogo-item .desc {
@@ -525,20 +529,30 @@ section > h2 {
   margin: 0;
 }
 
-/* Yurguen: Ver en línea + Descargar (dos enlaces por catálogo) */
+/* Yurguen: Ver en línea + Descargar apilados; margin-top auto = botones al fondo aunque el título ocupe 2 líneas */
 .catalogo-item__acciones {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.28rem;
   align-self: flex-start;
+  align-items: stretch;
+  width: auto;
+  max-width: 100%;
+  margin-top: auto;
 }
 
 .catalogo-item__acciones a {
-  display: inline-block;
-  padding: 0.48rem 1.05rem;
+  display: block;
+  width: 100%;
+  max-width: 9.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0.26rem 0.45rem;
   border-radius: 999px;
-  font-size: 0.92rem;
+  font-size: 0.74rem;
   font-weight: 600;
+  line-height: 1.2;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
     color 0.2s ease;
@@ -1098,6 +1112,7 @@ body.nav-open {
 .carousel__track {
   display: flex;
   flex-wrap: nowrap;
+  align-items: stretch;
   gap: 0.55rem;
   padding: 0.25rem 0.1rem 0.4rem;
   min-height: 100%;
@@ -1106,13 +1121,37 @@ body.nav-open {
 .carousel__slide {
   flex: 0 0 auto;
   scroll-snap-align: start;
+  display: flex;
 }
 
-/* Yurguen: slides al tamaño del contenido (PDF + botón / foto vendedor), no media pantalla */
-/* Yurguen: tarjetas de carrusel un poco más anchas (columna ya es más grande) */
+/* Yurguen: catálogos — 3 filas; flujo por columna (1↑ 2 3↓ | 4↑ 5 6↓ | …) */
+#catalogos .carousel-strip--catalogos .carousel__track {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: column;
+  grid-auto-columns: min(158px, calc(100vw - 2.85rem));
+  column-gap: 0.55rem;
+  row-gap: 0.4rem;
+  align-items: stretch;
+  gap: unset;
+}
+
+#catalogos .carousel-strip--catalogos .carousel__slide--cat {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Yurguen: slides catálogo a misma altura (stretch) para botones alineados abajo */
 .carousel__slide--cat {
-  width: min(292px, calc(100vw - 2.85rem));
-  max-width: 292px;
+  width: min(158px, calc(100vw - 2.85rem));
+  max-width: 158px;
+}
+
+.carousel__slide--cat .catalogo-item {
+  width: 100%;
+  flex: 1 1 auto;
 }
 
 .carousel__slide--v {
@@ -1122,8 +1161,11 @@ body.nav-open {
 
 @media (min-width: 400px) {
   .carousel__slide--cat {
-    width: min(308px, calc(100vw - 2.9rem));
-    max-width: 308px;
+    width: min(164px, calc(100vw - 2.9rem));
+    max-width: 164px;
+  }
+  #catalogos .carousel-strip--catalogos .carousel__track {
+    grid-auto-columns: min(164px, calc(100vw - 2.9rem));
   }
   .carousel__slide--v {
     width: min(184px, calc(100vw - 2.9rem));
@@ -1133,8 +1175,11 @@ body.nav-open {
 
 @media (min-width: 768px) {
   .carousel__slide--cat {
-    width: min(322px, 38vw);
-    max-width: 322px;
+    width: min(170px, 22vw);
+    max-width: 170px;
+  }
+  #catalogos .carousel-strip--catalogos .carousel__track {
+    grid-auto-columns: min(170px, 22vw);
   }
   .carousel__slide--v {
     width: min(196px, 24vw);
@@ -1144,8 +1189,11 @@ body.nav-open {
 
 @media (min-width: 1100px) {
   .carousel__slide--cat {
-    width: min(336px, 32vw);
-    max-width: 336px;
+    width: min(176px, 16vw);
+    max-width: 176px;
+  }
+  #catalogos .carousel-strip--catalogos .carousel__track {
+    grid-auto-columns: min(176px, 16vw);
   }
   .carousel__slide--v {
     width: min(208px, 16vw);

@@ -93,7 +93,9 @@ function render() {
           ]),
         ]),
       ]),
-      el('div', { className: 'carousel-strip' }, [buildCarouselElement(ui, catalogSlides())]),
+      el('div', { className: 'carousel-strip carousel-strip--catalogos' }, [
+        buildCarouselElement(ui, catalogSlides()),
+      ]),
     ]),
   ]);
 

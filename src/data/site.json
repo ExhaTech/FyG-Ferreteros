@@ -136,7 +136,8 @@
       { "titulo": "Universal", "archivo": "/catalogos/universal.pdf", "descripcion": "Línea Blanca" },
       { "titulo": "Automotriz", "archivo": "/catalogos/automotriz.pdf", "descripcion": "Herramientas" },
       { "titulo": "Knight", "archivo": "/catalogos/knigth.pdf", "descripcion": "Cintas Metricas" },
-      { "titulo": "PVC", "archivo": "/catalogos/pvc.pdf", "descripcion": "Tubos y Accesorios" }
+      { "titulo": "PVC", "archivo": "/catalogos/pvc.pdf", "descripcion": "Tubos y Accesorios" },
+      { "titulo": "Induma", "archivo": "/catalogos/induma.pdf", "descripcion": "Herrajes" }
     ]
   },
   "vendedores": {
