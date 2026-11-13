@@ -1,5 +1,5 @@
 {
-  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). Catálogos: PDFs en public/catalogos/; build copia raíz catalogos/ → public/. Si dist/catalogos quedó bien: npm run sync-catalogos-from-dist. QR sitio: contacto.qr.url + imagen; npm run generate-qr-sitio o build. Estructura vendedores: _comentarioEstructuraYurguen en vendedores.",
+  "_notaYurguen": "mostrarCodigoActividad true = muestra código en contacto. Móvil: solo en whatsapp (tel + botón). Catálogos: PDFs en public/catalogos/; build copia raíz catalogos/ → public/. Si dist/catalogos quedó bien: npm run sync-catalogos-from-dist. Cache PDF: generate-catalogos-versions.mjs pone ?v=YYYYMMDDHHmmss por archivo (fecha commit/subida). QR sitio: contacto.qr.url + imagen; npm run generate-qr-sitio o build. Estructura vendedores: _comentarioEstructuraYurguen en vendedores.",
   "layout": {
     "margenLateral": "0.75rem",
     "anchoMaximoContenido": "1400px"

@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/generate-qr-sitio.mjs && vite",
+    "dev": "node scripts/generate-qr-sitio.mjs && node scripts/generate-catalogos-versions.mjs && vite",
     "copy-catalogos": "node scripts/copy-catalogos.mjs",
+    "generate-catalogos-versions": "node scripts/generate-catalogos-versions.mjs",
     "sync-catalogos-from-dist": "node scripts/sync-catalogos-from-dist.mjs",
     "generate-qr-sitio": "node scripts/generate-qr-sitio.mjs",
-    "build": "node scripts/generate-qr-sitio.mjs && node scripts/copy-catalogos.mjs && vite build",
+    "build": "node scripts/generate-qr-sitio.mjs && node scripts/copy-catalogos.mjs && node scripts/generate-catalogos-versions.mjs && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {

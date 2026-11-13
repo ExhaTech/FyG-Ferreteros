@@ -1,7 +1,8 @@
 // Yurguen: página inicio — hero, catálogos, resumen contacto+dirección y pie; vendedores en vendedores.html.
 import site from './data/site.json';
+import catalogosVersions from './data/catalogos-versions.json';
 import { applyLayoutFromSite } from './applyLayout.js';
-import { publicUrl, fileNameFromPublicPath } from './publicUrl.js';
+import { publicUrlWithVersion, fileNameFromPublicPath } from './publicUrl.js';
 import { el } from './dom.js';
 import { createHeader } from './header.js';
 import { createFooter } from './footer.js';
@@ -26,9 +27,10 @@ function catalogSlides() {
   const defTit = ui.catalogoTituloPorDefecto || 'Catálogo';
   const verTxt = ui.catalogoVerPdf || 'Ver en línea';
   const bajarTxt = ui.catalogoDescargarPdf || 'Descargar PDF';
+  // Yurguen: ?v= por PDF (fecha/hora de última subida, generada en el build).
   return (site.catalogos?.items || []).map((item) => {
-    const href = publicUrl(item.archivo);
     const nombreArchivo = fileNameFromPublicPath(item.archivo);
+    const href = publicUrlWithVersion(item.archivo, catalogosVersions[nombreArchivo]);
     const acciones = el('div', { className: 'catalogo-item__acciones' }, [
       el(
         'a',
