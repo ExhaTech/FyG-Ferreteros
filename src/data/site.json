@@ -134,6 +134,7 @@
       { "titulo": "Kenneth", "archivo": "/catalogos/kenneth.pdf", "descripcion": "Grifería" },
       { "titulo": "Truper", "archivo": "/catalogos/truper.pdf", "descripcion": "Herramientas" },
       { "titulo": "Universal", "archivo": "/catalogos/universal.pdf", "descripcion": "Línea Blanca" },
+      { "titulo": "Zuka", "archivo": "/catalogos/zuka.pdf", "descripcion": "" },
       { "titulo": "Automotriz", "archivo": "/catalogos/automotriz.pdf", "descripcion": "Herramientas" },
       { "titulo": "Knight", "archivo": "/catalogos/knigth.pdf", "descripcion": "Cintas Metricas" },
       { "titulo": "PVC", "archivo": "/catalogos/pvc.pdf", "descripcion": "Tubos y Accesorios" },
